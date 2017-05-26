@@ -104,8 +104,10 @@ function array_contains_any() {
   if (type == "eqal") {
     if (array1.length != array2.length) return false;
     return union_len - xor_len == union_len;
+  } else {
+    if (array1.length == 0) return false;
+    return union_len > xor_len;
   }
-  return union_len > xor_len;
 } /*array_contains_any.js*/
 ;
 

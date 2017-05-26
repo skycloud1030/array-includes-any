@@ -8,5 +8,10 @@ export function array_contains_any(array1=[],array2=[],type="any"){
       return false;
     return union_len-xor_len==union_len;
   }
-  return union_len>xor_len;
+  else{
+    if(array1.length==0)
+      return false;
+    return union_len>xor_len;
+  }
+
 };
