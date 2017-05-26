@@ -13,7 +13,8 @@ npm install --save array-includes-any
 ```
 //CommonJS
 var _ = require('lodash');
-var array_contains_any = require('array-includes-any');
+var array_contains_any = require('array-includes-any').array_contains_any;
+
 //ES6
 import _ from 'lodash';
 import  {array_contains_any} from 'array-includes-any';
