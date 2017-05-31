@@ -1,1 +1,1 @@
-export {array_contains_any} from './src/array_contains_any';
+export {array_includes_any} from './src/array_includes_any';

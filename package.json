@@ -1,6 +1,6 @@
 {
   "name": "array-includes-any",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "array-includes-any",
   "license": "MIT",
   "main": "dist/index.js",

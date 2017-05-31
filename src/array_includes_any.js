@@ -1,6 +1,5 @@
-/*array_contains_any.js*/
-import _ from 'lodash';
-export function array_contains_any(array1=[],array2=[],type="any"){
+/*array_includes_any.js*/
+export function array_includes_any(array1=[],array2=[],type="any"){
   let union_len =_.union(array1,array2).length;
   let xor_len = _.xor(array1,array2).length;
   if(type=="eqal"){
