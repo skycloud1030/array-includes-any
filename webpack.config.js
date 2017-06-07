@@ -20,7 +20,7 @@ var config = {
       umdNamedDefine: true
     },
     externals: {
-      '_': 'lodash'
+      'lodash': 'lodash'
     },
     plugins: plugins,
     resolve: { alias: {} },

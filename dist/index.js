@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
+		module.exports = factory(require("lodash"));
 	else if(typeof define === 'function' && define.amd)
-		define("arrayIA", [], factory);
+		define("arrayIA", ["lodash"], factory);
 	else if(typeof exports === 'object')
-		exports["arrayIA"] = factory();
+		exports["arrayIA"] = factory(require("lodash"));
 	else
-		root["arrayIA"] = factory();
-})(this, function() {
+		root["arrayIA"] = factory(root["lodash"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -87,14 +87,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.array_includes_any = array_includes_any;
-/*array_includes_any.js*/
+
+var _lodash = __webpack_require__(2);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function array_includes_any() {
   var array1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var array2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
   var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "any";
 
-  var union_len = _.union(array1, array2).length;
-  var xor_len = _.xor(array1, array2).length;
+  var union_len = _lodash2.default.union(array1, array2).length;
+  var xor_len = _lodash2.default.xor(array1, array2).length;
   if (type == "eqal") {
     if (array1.length != array2.length) return false;
     return union_len - xor_len == union_len;
@@ -102,7 +108,8 @@ function array_includes_any() {
     if (array1.length == 0) return false;
     return union_len > xor_len;
   }
-};
+} /*array_includes_any.js*/
+;
 
 /***/ }),
 /* 1 */
@@ -123,6 +130,12 @@ Object.defineProperty(exports, 'array_includes_any', {
     return _array_includes_any.array_includes_any;
   }
 });
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
 /***/ })
 /******/ ]);
