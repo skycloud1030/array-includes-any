@@ -1,6 +1,5 @@
 # array-includes-any
 
-array includes base on lodash
 
 ## Install
 

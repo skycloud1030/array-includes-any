@@ -19,11 +19,8 @@ var config = {
       libraryTarget: 'umd',
       umdNamedDefine: true
     },
-    externals: {
-      'lodash': 'lodash'
-    },
+    externals: {},
     plugins: plugins,
-    resolve: { alias: {} },
     module: {
         loaders: [
           {
@@ -32,7 +29,7 @@ var config = {
             loader: 'babel-loader',
             query: {
               cacheDirectory:true,
-              presets: ['es2015']
+              presets: ['env']
             }
           }
         ],

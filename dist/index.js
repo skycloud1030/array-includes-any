@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("lodash"));
+		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("arrayIA", ["lodash"], factory);
+		define("arrayIA", [], factory);
 	else if(typeof exports === 'object')
-		exports["arrayIA"] = factory(require("lodash"));
+		exports["arrayIA"] = factory();
 	else
-		root["arrayIA"] = factory(root["lodash"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
+		root["arrayIA"] = factory();
+})(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -104,35 +104,41 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.array_includes_any = array_includes_any;
-
-var _lodash = __webpack_require__(2);
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+/*array_includes_any.js*/
 
 function array_includes_any() {
   var array1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var array2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
   var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "any";
 
-  var union_len = _lodash2.default.union(array1, array2).length;
-  var xor_len = _lodash2.default.xor(array1, array2).length;
-  if (type == "equal" || type == "eqal") {
+  if (type == "equal") {
     if (array1.length != array2.length) return false;
-    return union_len - xor_len == union_len;
-  } else {
-    if (array1.length == 0) return false;
-    return union_len > xor_len;
   }
-} /*array_includes_any.js*/
-;
+  //gen hash table
+  var hash_table = {};
+  for (var i = 0; i < array1.length; i++) {
+    hash_table[array1[i]] = array1[i];
+  }
 
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+  //compare state
+  var contains = false;
+  var contains_count = 0;
+  for (var i = 0; i < array2.length; i++) {
+    if (hash_table[array2[i]] != undefined) {
+      if (type == "equal") {
+        contains_count++;
+      } else {
+        contains = true;
+        break;
+      }
+    }
+  }
+  if (type == "equal") {
+    return contains_count == array2.length;
+  } else {
+    return contains;
+  }
+};
 
 /***/ })
 /******/ ]);
