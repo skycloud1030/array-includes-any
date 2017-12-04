@@ -1,12 +1,13 @@
 {
   "name": "array-includes-any",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "array-includes-any",
   "license": "MIT",
   "main": "dist/index.js",
   "keywords": [
-    "lodash",
-    "includes"
+    "array",
+    "includes",
+    "equal"
   ],
   "author": "skycloud1030",
   "repository": {

@@ -103,6 +103,9 @@ Object.defineProperty(exports, 'array_includes_any', {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 exports.array_includes_any = array_includes_any;
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -113,23 +116,58 @@ function array_includes_any() {
   var array2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
   var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "any";
 
+  if (type === 'equal') {
+    return shallowEqual(array1, array2);
+  }
   var objA = new Set(array1);
   var objB = new Set(array2);
-  if (type === "equal" && objA.size !== objB.size) {
-    return false;
-  }
   //compare state
   var intersection = new Set([].concat(_toConsumableArray(objB)).filter(function (x) {
     return objA.has(x);
   }));
-  if (type === 'equal' && intersection.size === objB.size) {
-    return true;
-  } else if (intersection.size > 0) {
-    return true;
+  return intersection.size > 0 ? true : false;
+};
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @providesModule shallowEqual
+ * @typechecks
+ * @flow
+ */
+var hasOwn = Object.prototype.hasOwnProperty;
+
+function is(x, y) {
+  if (x === y) {
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
   } else {
+    return x !== x && y !== y;
+  }
+}
+
+function shallowEqual(objA, objB) {
+  if (is(objA, objB)) return true;
+
+  if ((typeof objA === 'undefined' ? 'undefined' : _typeof(objA)) !== 'object' || objA === null || (typeof objB === 'undefined' ? 'undefined' : _typeof(objB)) !== 'object' || objB === null) {
     return false;
   }
-};
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+
+  if (keysA.length !== keysB.length) return false;
+
+  for (var i = 0; i < keysA.length; i++) {
+    if (!hasOwn.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
 
 /***/ })
 /******/ ]);
