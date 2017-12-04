@@ -104,41 +104,30 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.array_includes_any = array_includes_any;
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 /*array_includes_any.js*/
-var hasOwn = Object.prototype.hasOwnProperty;
 function array_includes_any() {
   var array1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var array2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
   var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "any";
 
-  if (type === "equal" && array1.length !== array2.length) {
+  var objA = new Set(array1);
+  var objB = new Set(array2);
+  if (type === "equal" && objA.size !== objB.size) {
     return false;
   }
-  // gen hash table
-  var hash_table = {};
-  for (var i = 0; i < array1.length; i++) {
-    hash_table[array1[i]] = array1[i];
-  }
-
-  // compare state
-  var contains = false;
-  var contains_count = 0;
-  for (var _i = 0; _i < array2.length; _i++) {
-    if (hasOwn.call(hash_table, array2[_i])) {
-      if (type === "equal") {
-        contains_count++;
-      } else {
-        contains = true;
-        break;
-      }
-    }
-  }
-
-  // return state
-  if (type === "equal") {
-    return contains_count === array2.length;
+  //compare state
+  var intersection = new Set([].concat(_toConsumableArray(objB)).filter(function (x) {
+    return objA.has(x);
+  }));
+  if (type === 'equal' && intersection.size === objB.size) {
+    return true;
+  } else if (intersection.size > 0) {
+    return true;
   } else {
-    return contains;
+    return false;
   }
 };
 
