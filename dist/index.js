@@ -107,9 +107,6 @@ Object.defineProperty(exports, "__esModule", {
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 exports.array_includes_any = array_includes_any;
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 /*array_includes_any.js*/
 function array_includes_any() {
   var array1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -119,13 +116,18 @@ function array_includes_any() {
   if (type === 'equal') {
     return shallowEqual(array1, array2);
   }
-  var objA = new Set(array1);
-  var objB = new Set(array2);
-  //compare state
-  var intersection = new Set([].concat(_toConsumableArray(objB)).filter(function (x) {
-    return objA.has(x);
-  }));
-  return intersection.size > 0 ? true : false;
+  // gen hash table
+  var objA = {};
+  for (var i = 0; i < array1.length; i++) {
+    objA[array1[i]] = array1[i];
+  }
+  // compare state
+  for (var _i = 0; _i < array2.length; _i++) {
+    if (objA.hasOwnProperty(array2[_i])) {
+      return true;
+    }
+  }
+  return false;
 };
 
 /**

@@ -3,11 +3,18 @@ export function array_includes_any(array1 = [], array2 = [], type = "any") {
   if (type === 'equal') {
     return shallowEqual(array1, array2);
   }
-  const objA = new Set(array1);
-  const objB = new Set(array2);
-  //compare state
-  const intersection = new Set([...objB].filter(x => objA.has(x)));
-  return (intersection.size > 0) ? true : false;
+  // gen hash table
+  let objA = {};
+  for (let i = 0; i < array1.length; i++) {
+    objA[array1[i]] = array1[i];
+  }
+  // compare state
+  for (let i = 0; i < array2.length; i++) {
+    if (objA.hasOwnProperty(array2[i])) {
+      return true;
+    }
+  }
+  return false;
 };
 
 
