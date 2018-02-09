@@ -86,11 +86,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var _array_includes_any = __webpack_require__(1);
 
-Object.defineProperty(exports, 'array_includes_any', {
-  enumerable: true,
-  get: function get() {
-    return _array_includes_any.array_includes_any;
-  }
+Object.keys(_array_includes_any).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _array_includes_any[key];
+    }
+  });
 });
 
 /***/ }),
