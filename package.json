@@ -1,29 +1,29 @@
 {
   "name": "array-includes-any",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "array-includes-any",
   "license": "MIT",
   "main": "dist/index.js",
-  "keywords": [
-    "array",
-    "includes",
-    "equal"
-  ],
+  "keywords": ["array", "includes", "equal"],
   "author": "skycloud1030",
   "repository": {
     "type": "git",
     "url": "https://github.com/skycloud1030/array-includes-any"
   },
+  "files": ["dist"],
   "scripts": {
     "start": "webpack --progress --colors --watch",
     "build": "webpack",
+    "test": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "min": "webpack --min"
   },
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
+    "coveralls": "^3.0.0",
+    "jest": "^22.2.1",
     "webpack": "^3.5.4"
   }
 }

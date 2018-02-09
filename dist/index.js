@@ -7,7 +7,7 @@
 		exports["arrayIA"] = factory();
 	else
 		root["arrayIA"] = factory();
-})(this, function() {
+})(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -108,13 +108,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 exports.array_includes_any = array_includes_any;
 /*array_includes_any.js*/
-function array_includes_any() {
-  var array1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var array2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+function array_includes_any(array1, array2) {
   var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "any";
 
-  if (type === 'equal') {
+  if (type === "equal") {
     return shallowEqual(array1, array2);
+  }
+
+  if (is(array1, array2)) return true;
+
+  if ((typeof array1 === "undefined" ? "undefined" : _typeof(array1)) !== "object" || array2 === null || (typeof array2 === "undefined" ? "undefined" : _typeof(array2)) !== "object" || array2 === null) {
+    return false;
   }
   // gen hash table
   var objA = {};
@@ -128,7 +132,7 @@ function array_includes_any() {
     }
   }
   return false;
-};
+}
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -153,7 +157,7 @@ function is(x, y) {
 function shallowEqual(objA, objB) {
   if (is(objA, objB)) return true;
 
-  if ((typeof objA === 'undefined' ? 'undefined' : _typeof(objA)) !== 'object' || objA === null || (typeof objB === 'undefined' ? 'undefined' : _typeof(objB)) !== 'object' || objB === null) {
+  if ((typeof objA === "undefined" ? "undefined" : _typeof(objA)) !== "object" || objA === null || (typeof objB === "undefined" ? "undefined" : _typeof(objB)) !== "object" || objB === null) {
     return false;
   }
 
@@ -170,6 +174,7 @@ function shallowEqual(objA, objB) {
 
   return true;
 }
+exports.default = array_includes_any;
 
 /***/ })
 /******/ ]);
