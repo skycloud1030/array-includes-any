@@ -1,11 +1,16 @@
-import array_includes_any from "../src/array_includes_any.js";
+import { array_includes_any as arrInAny } from "../index.js";
+import array_includes_any from "../index.js";
 describe("Tests", () => {
+  it("Function is exist", () => {
+    expect(typeof array_includes_any).toBe("function");
+    expect(typeof arrInAny).toBe("function");
+  });
   it("Any Mode", () => {
     expect(array_includes_any([1, 2], [1, 2])).toBe(true);
     expect(array_includes_any([1, 2], [1])).toBe(true);
     expect(array_includes_any([], [2, 1])).toBe(false);
     expect(array_includes_any([1, 2, 2], [1, 2, 2])).toBe(true);
-    expect(array_includes_any({},null)).toBe(false);
+    expect(array_includes_any({}, null)).toBe(false);
     expect(array_includes_any(undefined, undefined)).toBe(true);
   });
   it("Equal Mode", () => {
