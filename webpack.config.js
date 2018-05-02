@@ -4,10 +4,6 @@ var node_modules_dir = __dirname + '/node_modules';
 var min= process.argv.indexOf("--min")===-1?false:true;
 var plugins=[];
 
-if(min){
-  plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }))
-}
-
 var config = {
     entry: {
       "index":path.resolve(__dirname, 'index.js'),
@@ -22,7 +18,7 @@ var config = {
     externals: {},
     plugins: plugins,
     module: {
-        loaders: [
+        rules: [
           {
             test: /\.js[x]?$/,
             exclude: /(node_modules|bower_components)/,
