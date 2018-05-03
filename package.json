@@ -1,7 +1,7 @@
 {
   "name": "array-includes-any",
   "version": "2.3.1",
-  "description": "array-includes-any",
+  "description": "JavaScript Check if array contains any of another array",
   "license": "MIT",
   "main": "dist/index.js",
   "keywords": [

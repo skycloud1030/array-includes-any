@@ -6,6 +6,8 @@
 [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/skycloud1030/array-includes-any/blob/master/LICENSE)
 [![Donloads](https://img.shields.io/npm/dm/array-includes-any.svg)](https://www.npmjs.com/package/array-includes-any)
 
+JavaScript Check if array contains any of another array
+
 ## Install
 
 ```sh
