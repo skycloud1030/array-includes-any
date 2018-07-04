@@ -18,7 +18,7 @@ npm install --save array-includes-any
 
 ```js
 //CommonJS
-var array_includes_any = require("array-includes-any");
+var array_includes_any = require("array-includes-any").array_includes_any;
 
 //ES6
 import array_includes_any from "array-includes-any";

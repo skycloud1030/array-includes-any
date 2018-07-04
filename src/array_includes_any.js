@@ -6,12 +6,7 @@ export default function array_includes_any(array1, array2, type = "any") {
 
   if (is(array1, array2)) return true;
 
-  if (
-    typeof array1 !== "object" ||
-    array2 === null ||
-    typeof array2 !== "object" ||
-    array2 === null
-  ) {
+  if (typeof array1 !== "object" || array2 === null || typeof array2 !== "object" || array2 === null) {
     return false;
   }
   // dictionary O(n)
@@ -67,12 +62,7 @@ function is(x, y) {
 function shallowEqual(objA, objB) {
   if (is(objA, objB)) return true;
 
-  if (
-    typeof objA !== "object" ||
-    objA === null ||
-    typeof objB !== "object" ||
-    objB === null
-  ) {
+  if (typeof objA !== "object" || objA === null || typeof objB !== "object" || objB === null) {
     return false;
   }
 
@@ -83,10 +73,7 @@ function shallowEqual(objA, objB) {
 
   // Test for A's keys different from B.
   for (var i = 0; i < keysA.length; i++) {
-    if (
-      !hasOwnProperty.call(objB, keysA[i]) ||
-      !is(objA[keysA[i]], objB[keysA[i]])
-    ) {
+    if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
       return false;
     }
   }
