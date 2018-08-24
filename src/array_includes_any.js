@@ -1,21 +1,19 @@
 /*array_includes_any.js*/
 export default function array_includes_any(array1, array2, type = "any") {
-  if (type === "equal") {
-    return shallowEqual(array1, array2);
-  }
-
+  if (type === "equal") return shallowEqual(array1, array2);
   if (is(array1, array2)) return true;
 
   if (typeof array1 !== "object" || array2 === null || typeof array2 !== "object" || array2 === null) {
     return false;
   }
+
   // dictionary O(n)
   let dictionary = {};
-  for (let i = 0; i < array1.length; i++) {
-    dictionary[array1[i]] = array1[i];
+  for (let i = 0, len = array1.length; i < len; i++) {
+    dictionary[array1[i]] = "";
   }
-  // compare state
-  for (let i = 0; i < array2.length; i++) {
+  // Compare State
+  for (let i = 0, len = array2.length; i < len; i++) {
     if (dictionary.hasOwnProperty(array2[i])) {
       return true;
     }

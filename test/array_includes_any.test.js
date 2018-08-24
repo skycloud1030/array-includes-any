@@ -1,5 +1,8 @@
 import { array_includes_any as arrInAny } from "../index.js";
 import array_includes_any from "../index.js";
+
+const d1 = [];
+const d2 = [];
 describe("Tests", () => {
   it("Function is exist", () => {
     expect(typeof array_includes_any).toBe("function");
@@ -24,4 +27,5 @@ describe("Tests", () => {
     expect(array_includes_any(0, 0, "equal")).toBe(true);
     expect(array_includes_any(NaN, NaN, "equal")).toBe(true);
   });
+  
 });
