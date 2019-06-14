@@ -23,7 +23,7 @@ var config = {
         loader: "babel-loader",
         query: {
           cacheDirectory: true,
-          presets: ["env"]
+          presets: ["@babel/preset-env"]
         }
       }
     ]
