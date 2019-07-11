@@ -1,6 +1,6 @@
 {
   "name": "array-includes-any",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "JavaScript Check if array contains any of another array",
   "license": "MIT",
   "main": "dist/index.js",
@@ -32,6 +32,7 @@
     "babel-loader": "^8.0.0",
     "coveralls": "^3.0.4",
     "jest": "^24.8.0",
+    "lodash": "^4.17.14",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4"
   }
