@@ -10,7 +10,7 @@ export default function array_includes_any(array1, array2, type = "any") {
   // dictionary O(n)
   let dictionary = {};
   for (let i = 0, len = array1.length; i < len; i++) {
-    dictionary[array1[i]] = "";
+    dictionary[array1[i]] = undefined;
   }
   // Compare State
   for (let i = 0, len = array2.length; i < len; i++) {
@@ -70,7 +70,7 @@ function shallowEqual(objA, objB) {
   if (keysA.length !== keysB.length) return false;
 
   // Test for A's keys different from B.
-  for (var i = 0; i < keysA.length; i++) {
+  for (let i = 0; i < keysA.length; i++) {
     if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
       return false;
     }
