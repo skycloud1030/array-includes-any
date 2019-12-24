@@ -1,6 +1,6 @@
 {
   "name": "array-includes-any",
-  "version": "2.6.6",
+  "version": "2.7.0",
   "description": "JavaScript Check if array contains any of another array",
   "license": "MIT",
   "main": "dist/index.js",
@@ -8,7 +8,8 @@
     "array",
     "includes",
     "equal",
-    "dictionary"
+    "dictionary",
+    "webassembly"
   ],
   "author": "skycloud1030",
   "repository": {
@@ -24,7 +25,6 @@
     "test": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "jest": "jest --coverage"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",

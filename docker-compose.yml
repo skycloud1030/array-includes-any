@@ -1,0 +1,11 @@
+version: "3"
+services:
+  server:
+    image: apiaryio/emcc 
+    container_name: emcc
+    restart: always
+    volumes:
+      - ./wasm:/build/wasm
+      - ./dist:/build/dist
+    stdin_open: true
+    tty: true
