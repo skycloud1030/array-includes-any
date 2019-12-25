@@ -27,5 +27,4 @@ describe("Tests", () => {
     expect(array_includes_any(0, 0, "equal")).toBe(true);
     expect(array_includes_any(NaN, NaN, "equal")).toBe(true);
   });
-  
 });

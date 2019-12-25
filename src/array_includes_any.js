@@ -3,7 +3,7 @@ export default function array_includes_any(array1, array2, type = "any") {
   if (type === "equal") return shallowEqual(array1, array2);
   if (is(array1, array2)) return true;
 
-  if (typeof array1 !== "object" || array2 === null || typeof array2 !== "object" || array2 === null) {
+  if (typeof array1 !== "object" || array1 === null || typeof array2 !== "object" || array2 === null) {
     return false;
   }
 
