@@ -11,6 +11,7 @@ const moduleReady = () => {
   });
 };
 
+
 describe("Wasm Tests", () => {
   beforeAll(async () => {
     await moduleReady();
