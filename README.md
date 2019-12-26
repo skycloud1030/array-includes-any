@@ -14,7 +14,7 @@ JavaScript Check if array contains any of another array
 npm install --save array-includes-any
 ```
 
-## Usage
+## Examples
 
 ```js
 //CommonJS
@@ -33,6 +33,10 @@ array_includes_any([1, 2, 2], [1, 2], "equal"); //false
 array_includes_any([1, 2, 2], [1, 2, 2], "equal"); //true
 array_includes_any([1, 2, 2], [1, 2, 2]); //true
 ```
+
+## WebAssembly
+
+The folder [wasm](https://github.com/skycloud1030/array-includes-any/tree/master/wasm) demonstrates how to compile the original function to WebAssembly.
 
 ## License
 

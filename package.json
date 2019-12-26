@@ -17,7 +17,8 @@
     "url": "https://github.com/skycloud1030/array-includes-any"
   },
   "files": [
-    "dist"
+    "dist",
+    "wasm"
   ],
   "scripts": {
     "start": "webpack --progress --colors --watch --mode development",

@@ -1,16 +1,13 @@
 /**
  * @jest-environment node
  */
-const Module = require("../dist/wasm/array-includes-any.js");
+import Module from "./dist/array-includes-any.js";
 const library = new Module();
 const moduleReady = () => {
   return new Promise(resolve => {
-    library.onRuntimeInitialized = function() {
-      resolve();
-    };
+    library.then(() => resolve());
   });
 };
-
 
 describe("Wasm Tests", () => {
   beforeAll(async () => {

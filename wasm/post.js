@@ -11,10 +11,15 @@ Module["_freeArray"] = function(heapBytes) {
 };
 
 Module["array_includes_any"] = function(array1, array2, type) {
-  type = type || "any"
+  type = type || "any";
   if (is(array1, array2)) return true;
-  if ( typeof array1 !== "object" || array1 === null || typeof array2 !== "object" || array2 === null ) { 
-    return false; 
+  if (
+    typeof array1 !== "object" ||
+    array1 === null ||
+    typeof array2 !== "object" ||
+    array2 === null
+  ) {
+    return false;
   }
   const h_array1 = Module._arrayToHeap(new Int32Array(array1));
   const h_array2 = Module._arrayToHeap(new Int32Array(array2));

@@ -5,7 +5,6 @@ services:
     container_name: emcc
     restart: always
     volumes:
-      - ./wasm:/build/wasm
-      - ./dist:/build/dist
+      - .:/build/wasm
     stdin_open: true
     tty: true
