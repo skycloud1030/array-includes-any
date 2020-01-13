@@ -1,9 +1,10 @@
 version: "3"
 services:
   server:
-    image: apiaryio/emcc 
+    image: trzeci/emscripten-upstream
     container_name: emcc
     restart: always
+    command: /bin/bash
     volumes:
       - .:/build/wasm
     stdin_open: true

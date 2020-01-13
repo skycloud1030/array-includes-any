@@ -3,9 +3,12 @@
 ## Node
 
 ```js
-const Module = require("../dist/array-includes-any.js").default;
+const Module = require("../dist/array-includes-any.esm.js");
+const config = {
+  wasmMemory: new WebAssembly.Memory({ initial: 256, maximum: 512 })
+};
 
-Module().then(({ array_includes_any }) => {
+Module(config).then(({ array_includes_any }) => {
   console.log(array_includes_any([1, 2], [1]));
   console.log(array_includes_any([1, 2], [10]));
   console.log(array_includes_any([1, 2], [3]));
@@ -15,22 +18,22 @@ Module().then(({ array_includes_any }) => {
 ## TS
 
 ```ts
-import Module from "../dist/array-includes-any.js";
+import * as Module from "../dist/array-includes-any.esm.js";
+const config = {
+  wasmMemory: new WebAssembly.Memory({ initial: 256, maximum: 512 })
+};
 
-Module().then(({ array_includes_any }) => {
+Module(config).then(({ array_includes_any }) => {
   console.log(array_includes_any([1, 2], [1]));
   console.log(array_includes_any([1, 2], [10]));
   console.log(array_includes_any([1, 2], [3]));
 });
 ```
 
-# Build
-
 ## C to Wasm
 
 ```sh
-emcc compare.c -o ./dist/array-includes-any.js --post-js post.js -s MODULARIZE=1 -s EXPORT_ES6=1 -s ALLOW_MEMORY_GROWTH=1 -O3
-
+emcc compare.c -o ./dist/array-includes-any.js --post-js post.js -O3 -s WASM=1 -s MODULARIZE=1 -s EXPORT_ES6=1  -s ALLOW_MEMORY_GROWTH=1
 ```
 
 ## Babel wasm js to es2015
@@ -38,5 +41,5 @@ emcc compare.c -o ./dist/array-includes-any.js --post-js post.js -s MODULARIZE=1
 - Support Both node.js & webpack
 
 ```sh
-babel ./dist/array-includes-any.js -o ./dist/array-includes-any.js
+rollup array-includes-any.js --file array-includes-any.esm.js --format umd --name "arrayIA"
 ```

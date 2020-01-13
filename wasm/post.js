@@ -10,8 +10,7 @@ Module["_freeArray"] = function(heapBytes) {
   Module["_free"](heapBytes.byteOffset);
 };
 
-Module["array_includes_any"] = function(array1, array2, type) {
-  type = type || "any";
+Module["array_includes_any"] = function(array1, array2, type = "any") {
   if (is(array1, array2)) return true;
   if (
     typeof array1 !== "object" ||
@@ -24,7 +23,7 @@ Module["array_includes_any"] = function(array1, array2, type) {
   const h_array1 = Module._arrayToHeap(new Int32Array(array1));
   const h_array2 = Module._arrayToHeap(new Int32Array(array2));
 
-  var equal = 0;
+  let equal = 0;
   if (type === "equal") {
     equal = Module._shallowEqual(
       h_array1.byteOffset,

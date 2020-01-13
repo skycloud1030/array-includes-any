@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import Module from "./dist/array-includes-any.js";
+import Module from "./dist/array-includes-any.esm.js";
 const library = new Module();
 const moduleReady = () => {
   return new Promise(resolve => {
