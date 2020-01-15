@@ -41,5 +41,5 @@ emcc compare.c -o ./dist/array-includes-any.js --post-js post.js -O3 -s WASM=1 -
 - Support Both node.js & webpack
 
 ```sh
-rollup array-includes-any.js --file array-includes-any.esm.js --format umd --name "arrayIA"
+rollup array-includes-any.js --file array-includes-any.esm.js --format umd --name arrayIA
 ```
