@@ -4,6 +4,7 @@
   "description": "JavaScript Check if array contains any of another array",
   "license": "MIT",
   "main": "dist/index.js",
+  "types": "src/types.d.ts",
   "keywords": [
     "array",
     "includes",
