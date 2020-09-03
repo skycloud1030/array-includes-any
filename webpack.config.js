@@ -3,7 +3,7 @@ var plugins = [];
 
 var config = {
   entry: {
-    index: path.resolve(__dirname, "index.js")
+    index: path.resolve(__dirname, "index.js"),
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -11,7 +11,7 @@ var config = {
     library: "arrayIA",
     libraryTarget: "umd",
     umdNamedDefine: true,
-    globalObject: "this"
+    globalObject: "this",
   },
   externals: {},
   plugins: plugins,
@@ -23,11 +23,10 @@ var config = {
         loader: "babel-loader",
         query: {
           cacheDirectory: true,
-          presets: ["@babel/preset-env"]
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 };
 
 module.exports = config;
